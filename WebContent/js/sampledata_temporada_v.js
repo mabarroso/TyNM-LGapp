@@ -49,7 +49,3 @@ AudioTitle[9] = "Pop Audio 09";
 AudioUrl[9] = "../media/sample.mp3";
 AudioType[9] = "application/x-netcast-av";
 
-AudioId[10] = "10";
-AudioTitle[10] = "Pop Audio 10";
-AudioUrl[10] = "../media/sample.mp3";
-AudioType[10] = "application/x-netcast-av";
