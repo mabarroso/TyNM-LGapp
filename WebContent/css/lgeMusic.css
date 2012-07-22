@@ -1,0 +1,517 @@
+@charset "utf-8";
+* {
+	padding: 0;
+	margin: 0;
+}
+* {
+	font-family:LG Display;
+	margin : 0px 0 0 0px;
+}
+
+/*version info*/
+#versionInfo {
+	font-size: 15pt;
+	color: #0077AA;
+	position: absolute;
+	width: 200px;
+	height: 19px;
+	top: 10px ;
+	left: 1000px;
+}
+
+.titlelogo {
+	font-size: 45px;
+	color: #9d9d9d;
+}
+
+.tabArea {
+	width:1280px;
+	height:50px;
+	background-image:url(../image/title/TITLE_TAB_BG_BLACK.png);
+	background-repeat: repeat-x;
+}
+
+.keyhelp {
+	position: absolute;
+	font-size: 26px;
+	color: rgb(182,182,182);
+	vertical-align: middle;
+
+	top:640px;
+	width: 191px;
+	height: 56px;
+	text-align: center;
+	background-image:url(../image/KEYHELP/KEYHELP_NORMAL.png);
+}
+
+
+
+.btnMainMenu {
+	font-size: 26px;
+	width: 246px;
+	height: 55px;
+	color: rgb(182,182,182);
+	text-align: center;
+	position: absolute;
+	line-height:2.2;
+	background: url('../image/MENU_BTN_NORMAL.png');
+}
+
+.fbtnMainMenu {
+	font-size: 26px;
+	width: 246px;
+	height: 55px;
+	color: rgb(250,250,250);
+	text-align: center;
+	position: absolute;
+	line-height:2.2;
+	background: url('../image/MENU_BTN_FOCUS.png');
+}
+
+.sbtnMainMenu {
+	font-size: 26px;
+	width: 246px;
+	height: 55px;
+	color: rgb(0,0,0);
+	text-align: center;
+	position: absolute;
+	line-height:2.2;
+	background: url('../image/MENU_BTN_SELECTED.png');
+}
+
+
+.btnSubMenu {
+	font-size: 26px;
+	width: 208px;
+	height: 55px;
+	color: rgb(182,182,182);
+	text-align: center;
+	position: absolute;
+	line-height:2.2;
+	background: url('../image/SUBMENU_BTN_NORMAL.png');
+}
+
+.fbtnSubMenu {
+	font-size: 26px;
+	width: 208px;
+	height: 55px;
+	color: rgb(250,250,250);
+	text-align: center;
+	position: absolute;
+	line-height:2.2;
+	background: url('../image/SUBMENU_BTN_FOCUS.png');
+}
+
+.sbtnSubMenu {
+	font-size: 26px;
+	width: 208px;
+	height: 55px;
+	color: rgb(0,0,0);
+	text-align: center;
+	position: absolute;
+	line-height:2.2;
+	background: url('../image/SUBMENU_BTN_SELECTED.png');
+}
+
+
+.mainArea {
+	width: 1280px;
+	height: 562px;
+	position: absolute;
+	top: 148px;
+	left: 0px;
+}
+
+.musicLangFont{
+	font-size: 26px;
+	text-align: left;
+	line-height: 2.15;
+	width:450px;
+	height: 45px;
+	left: 57px;
+	color: rgb(182,182,182);
+}
+
+
+.musicCheckBox{
+	left: 5px;
+	top:8px;
+	width:39px;
+	height:33px;
+	background: url('../image/SIGN_CHECKBOX.png');
+}
+
+.listLine{
+	position: absolute;
+	height:1px;
+	width:608px;
+	left:5px;
+	background:rgb(137,137,137);
+}
+
+.btnMusicPlay{
+	width:95px;
+	height:40px;
+	background: url('../image/PLAY_BTN_NORMAL.png');
+}
+
+
+
+.mediaControlStyle {
+	position: absolute;
+	margin : 0px 0 0 0px;
+	top: 532px;
+	left: 551px;
+	width: 680px;
+	height: 92px;
+	background:red;
+	background: url('../image/PLAYER/MUSIC_PLAYER_BG.png');
+	z-index: 1200;
+}
+
+
+/*play control */
+
+.playTimeCurStyle {
+	font-size: 23px;
+	text-align:center;
+	/*
+	right:85px;
+	*/
+	left:535px;
+	color: rgb(130,130,130);
+	vertical-align: middle;
+	position: absolute;
+	top: 41px;
+	/*
+	width:60px;
+	*/
+	width:60px;
+}
+
+.playTimeSlashStyle{
+	font-size: 23px;
+	text-align:center;
+	left:595px;
+	color: rgb(250,250,250);
+	vertical-align: middle;
+	position: absolute;
+	top:41px;
+	width:10px;
+}
+
+.playTimeTotalStyle {
+	font-size: 23px;
+	text-align:center;
+	/*
+	right:20px;
+	*/
+	left:605px;
+	color: rgb(250,250,250);
+	vertical-align: middle;
+	position: absolute;
+	top: 41px;
+	width:60px;
+}
+
+.playTimeCurFullStyle {
+	font-size: 28px;
+	text-align:center;
+	color: #fafafa;
+	vertical-align: middle;
+	position: absolute;
+	top: 25px;
+	left : 900px;
+	height: 30px;
+	width: 120px;
+}
+
+.playTimeTotalFullStyle {
+	font-size: 28px;
+	text-align:center;
+	color: rgb(157,157,157);
+	vertical-align: middle;
+	position: absolute;
+	top: 25px;
+	left : 1010px;
+	height: 30px;
+	width: 120px;
+}
+
+.totalBarFullStyle {
+	position:absolute;
+	top: 40px;
+	left: 132px;
+	background-color: rgb(31,31,29);
+	height: 15px;
+	width: 750px;
+}
+
+.bufferBarStyle {
+	position:absolute;
+	top: 21px;
+	left: 76px;
+	height: 10px;
+	width: 0px;
+	z-index: 1200;
+}
+
+.bufferBarFullStyle {
+	position:absolute;
+	top: 40px;
+	left: 132px;
+	background-color: rgb(27,59,46);
+	height: 15px;
+	width: 0px;
+	z-index: 10200;
+}
+
+.progressBarStyle {
+	position:absolute;
+	top: 49px;
+	left: 216px;
+	background: url('../image/PLAYER/MUSIC_PLAYER_PGBAR_M.png');
+	height: 12px;
+	width: 0px;
+	z-index: 1300;
+}
+
+
+.totalBarStyle {
+	position:absolute;
+	top: 49px;
+	left: 216px;
+	background: url('../image/PLAYER/MUSIC_PLAYER_PGBG_M.png');
+	height: 12px;
+	width: 312px;
+}
+
+.progressFocusStyle {
+	position:absolute;
+	top: 42px;
+	left: 204px;
+	z-index: 1400;
+	width: 27px;
+	height: 27px;
+}
+
+.progressBarFullStyle {
+	position:absolute;
+	top: 51px;
+	left: 216px;
+	background: url('../image/PLAYER/MUSIC_PLAYER_PGBAR_M.png');
+	height: 12px;
+	width: 290px;
+	z-index: 10300;
+}
+
+
+
+
+.progressFocusFullStyle {
+	position:absolute;
+	top: 28px;
+	/*  default
+	left: 130px;*/
+	left: 106px;
+	z-index: 10400;
+	width: 40px;
+	height: 40px;
+}
+
+
+.musicNameStyle {
+	font-size: 24px;
+	text-align:left;
+	top: 11px;
+	left : 216px;
+	color: rgb(250,250,250);
+	vertical-align: middle;
+	position: absolute;
+}
+
+
+
+.btnMark{
+	left: 3px;
+	width: 163px;
+	height: 52px;
+	font-size: 26px;
+	text-align:center;
+	line-height:2.1;
+	color: rgb(182,182,182);
+	position: absolute;
+	background: url('../image/MARK_BTN_NORMAL.png');
+}
+
+.btnAddToList{
+	left: 3px;
+	width: 163px;
+	height: 52px;
+	font-size: 26px;
+	text-align:center;
+	line-height:2.1;
+	color: rgb(182,182,182);
+	position: absolute;
+	background: url('../image/MARK_BTN_NORMAL.png');
+}
+
+.pageCnt{
+	font-size: 24pt;
+	line-height: 1.6;
+	color: rgb(182,182,182);
+	text-align: right;
+	width: 152px;
+	height: 50px;
+	position: absolute;
+}
+
+.fbtnMark{
+	font-size: 26px;
+	text-align:center;
+	line-height: 2.1;
+	color: rgb(250,250,250);
+	width: 163px;
+	height: 52px;
+	vertical-align: middle;
+	position: absolute;
+	background: url('../image/MARK_BTN_FOCUS.png');
+}
+
+.fbtnAddToList{
+	font-size: 26px;
+	text-align:center;
+	line-height: 2.1;
+	color: rgb(250,250,250);
+	width: 163px;
+	height: 52px;
+	vertical-align: middle;
+	position: absolute;
+	background: url('../image/MARK_BTN_FOCUS.png');
+}
+
+.fbtnlist{
+	font-size: 26px;
+	text-align: left;
+	line-height: 2.15;
+	width: 454px;
+	height: 50px;
+	color: rgb(250,250,250);
+	padding-left:57px;
+	position: absolute;
+	background: url('../image/MUSICLIST_FOCUS.png');
+}
+
+.uncheck{
+	background: url('../image/SIGN_CHECKBOX.png');
+	left: 2px;
+	width: 38px;
+	height: 33px;
+	vertical-align: middle;
+	position: absolute;
+}
+
+.check{
+	background: url('../image/SIGN_CHECK.png');
+	left: 2px;
+	width: 38px;
+	height: 33px;
+	position: absolute;
+}
+
+.play{
+	background: url('../image/PLAY_BTN_FOCUS.png');
+	width: 95px;
+	height: 40px;
+	left: 20px;
+	position: absolute;
+}
+
+.playnow{
+	background: url('../image/PLAYNOW_BTN_FOCUS.png');
+	width: 95px;
+	height: 40px;
+	left: 20px;
+	position: absolute;
+}
+
+.upArrow{
+	background: url('../image/MENU_ARROW_FOCUS_UP.png');
+	width: 246px;
+	height: 35px;
+	position: absolute;
+}
+
+.downArrow{
+	background: url('../image/MENU_ARROW_FOCUS_DOWN.png');
+	width: 246px;
+	height: 35px;
+	position: absolute;
+}
+
+.SubUpArrow{
+	background: url('../image/SUBMENU_ARROW_FOCUS_UP.png');
+	width: 208px;
+	height: 35px;
+	position: absolute;
+}
+
+.SubDownArrow{
+	background: url('../image/SUBMENU_ARROW_FOCUS_DOWN.png');
+	width: 208px;
+	height: 35px;
+	position: absolute;
+}
+
+
+.btnListTxt {
+	width:314px;
+	font-size: 30px;
+	padding-top:3px;
+	color: rgb(44,47,70);
+	text-align:center;
+	background : url('../image/POPUP/POPUP_BTN_LIST_NORMAL.png');
+}
+
+.btnBtnTxt {
+	font-size: 30px;
+	color: rgb(44,47,70);
+}
+
+.btnBtnTxt2 {
+	font-size: 26px;
+	color: rgb(44,47,70);
+}
+
+.popupAddListTitle{
+	color: rgb(59,58,98);
+	font-size: 30px;
+	line-height:1.15;
+	position: absolute;
+	top : 27px;
+	left: 30px;
+	text-align: left;
+}
+
+.popupMsgTitle{
+	color: rgb(83,93,125);
+	font-size: 26px;
+	position: absolute;
+	width:360px;
+	height:65px;
+	top : 33px;
+	left:50px;
+	text-align: center;
+}
+
+
+.keyhelp2{
+	background-image: url(../image/keyhelp/KEYHELP_NORMAL.png);
+	background-repeat: no-repeat;
+	/*vertical-align: top; */
+	font-size: 23px;
+	width: 191px;
+	height: 56px;
+	color: rgb(181,181,181);
+	vertical-align: top;
+}
