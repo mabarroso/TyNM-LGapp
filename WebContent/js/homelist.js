@@ -957,8 +957,7 @@ function doHighlight(keyId) {
 	//subMenu_Genre
 	} else if(menuNum == 1){
 		top = document.getElementById("menu_1"+topIndex).offsetTop+169;
-		left = 315;
-		e = document.getElementById("wkk_key_focus_Sub");
+		left = 315;                                                                                                           		e = document.getElementById("wkk_key_focus_Sub");
 	//subMenu_PlayingList
 	} else if(menuNum == 2){
 		top = document.getElementById("menu_2"+topIndex).offsetTop+169;
