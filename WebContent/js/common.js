@@ -1,6 +1,6 @@
-var tab_elements = new Array();
-var tab_elements_n = 0;
-var tab_element_current = 0;
+var cmn_tab_elements = new Array();
+var cmn_tab_elements_n = 0;
+var cmn_tab_element_current = 0;
 
 var r;
 
@@ -13,25 +13,29 @@ function init_tabs() {
 	for(i = 0; i < n; i++) {
 		order = 1 * elements[i].dataset.order;
 		if (order>0) {
-			tab_elements[j] = elements[i];
+			cmn_tab_elements[j] = elements[i];
 			j++;
 			r.innerHTML = r.innerHTML + order + "<br>";
 		}
 		
     }
-	tab_elements_n = tab_elements.length;
+	cmn_tab_elements_n = cmn_tab_elements.length;
 	r.innerHTML = r.innerHTML + "---" + "<br>";	
-	r.innerHTML = r.innerHTML + tab_elements_n + "<br>";
+	r.innerHTML = r.innerHTML + cmn_tab_elements_n + "<br>";
 	
-	tab_elements.sort(tab_elements_sortfunction);
+	cmn_tab_elements.sort(tab_elements_sortfunction);
 	r.innerHTML = r.innerHTML + "---" + "<br>";
-	for(i = 0; i < tab_elements_n; i++) {
+	for(i = 0; i < cmn_tab_elements_n; i++) {
 		r.innerHTML = r.innerHTML + "index " + i + " ";		
-        r.innerHTML = r.innerHTML + tab_elements[i].dataset.order+"<br>";
+        r.innerHTML = r.innerHTML + cmn_tab_elements[i].dataset.order+"<br>";
     }	
 	
 	r.innerHTML = r.innerHTML + "end" + "<br>";
 	tab_elements_first();
+}
+
+function tab_element_current() {
+	return cmn_tab_elements[cmn_tab_element_current];
 }
 
 function tab_elements_sortfunction(a, b){
@@ -41,17 +45,17 @@ function tab_elements_sortfunction(a, b){
 }
 
 function tab_elements_next() {
-	if (tab_element_current < tab_elements_n-1) tab_element_current++;
+	if (cmn_tab_element_current < cmn_tab_elements_n-1) cmn_tab_element_current++;
 }
 
 function tab_elements_previous() {
-	if (tab_element_current > 0) tab_element_current--;
+	if (cmn_tab_element_current > 0) cmn_tab_element_current--;
 }
 
 function tab_elements_first() {
-	tab_element_current = 0;	
+	cmn_tab_element_current = 0;	
 }
 
 function tab_elements_last() {
-	tab_element_current = tab_elements_n-1;
+	cmn_tab_element_current = cmn_tab_elements_n-1;
 }

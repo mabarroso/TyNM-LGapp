@@ -8,7 +8,7 @@ function keyDown(event){
 		
 function keyDownByKeyCode(keyCodeToProcess){
 	r = document.getElementById('r');
-	
+	tab_element_current().style.color = 'rgb(182,182,182)';
 	switch (keyCodeToProcess) {	
 		case VK_LEFT: 
 			tab_elements_previous()
@@ -58,9 +58,9 @@ function keyDownByKeyCode(keyCodeToProcess){
 		case VK_0 :						
 			document.location.reload();
 			break;
-			
 	}
-	r.innerHTML = r.innerHTML + tab_elements[tab_element_current].dataset.order+"<br>";
+	tab_element_current().style.color = 'rgb(255,255,255)';
+	r.innerHTML = r.innerHTML + tab_element_current().dataset.order+"<br>";
 }
 
 function executeAction(action, position) {
