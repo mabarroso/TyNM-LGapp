@@ -12,3 +12,19 @@
 	color: rgb(255,255,255);
 	background-color: rgb(91,91,91);
 }
+
+.track {
+	width: 454px;
+	height: 50px;
+	color: rgb(250,250,250);	
+}
+
+.track.tab_on {
+	color: rgb(255,255,255);
+	background:#000 url('../image/MUSICLIST_FOCUS.png') repeat-y;
+}
+
+.track.tab_off {
+	color: rgb(182,182,182);
+	background:#000;
+}

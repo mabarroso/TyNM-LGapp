@@ -1,5 +1,6 @@
 function homeInit() {
 	init_tabs();
+	tabv2tabh();
 	current_on();
 }
 
