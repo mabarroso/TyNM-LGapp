@@ -65,11 +65,15 @@ function keyDownByKeyCode(keyCodeToProcess){
 }
 
 function current_off() {
-	tab_element_current().style.color = 'rgb(182,182,182)';	
+//	tab_element_current().style.color = 'rgb(182,182,182)';
+	e = tab_element_current();
+	e.className = e.className.replace( /tab_on/ , 'tab_off' );
 }
 
 function current_on() {
-	tab_element_current().style.color = 'rgb(255,255,255)';	
+//	tab_element_current().style.color = 'rgb(255,255,255)';
+	e = tab_element_current();
+	e.className = e.className.replace( /tab_off/ , 'tab_on' );
 }
 
 function executeAction(action, position) {
