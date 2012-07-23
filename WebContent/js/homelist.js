@@ -1,5 +1,6 @@
 function homeInit() {
 	init_tabs();
+	current_on();
 }
 
 function keyDown(event){
@@ -7,18 +8,19 @@ function keyDown(event){
 }
 		
 function keyDownByKeyCode(keyCodeToProcess){
-	r = document.getElementById('r');
-	tab_element_current().style.color = 'rgb(182,182,182)';
+	current_off();
 	switch (keyCodeToProcess) {	
 		case VK_LEFT: 
-			tab_elements_previous()
+			tabh_elements_previous();
 			break;
 		case VK_RIGHT:
-			tab_elements_next();
+			tabh_elements_next();
 			break;
-		case VK_DOWN: 
+		case VK_DOWN: 			
+			tabv_elements_next();
 			break;
 		case VK_UP: 
+			tabv_elements_previous();
 			break;
 		case VK_ENTER: 
 			break;			
@@ -59,8 +61,15 @@ function keyDownByKeyCode(keyCodeToProcess){
 			document.location.reload();
 			break;
 	}
-	tab_element_current().style.color = 'rgb(255,255,255)';
-	r.innerHTML = r.innerHTML + tab_element_current().dataset.order+"<br>";
+	current_on();
+}
+
+function current_off() {
+	tab_element_current().style.color = 'rgb(182,182,182)';	
+}
+
+function current_on() {
+	tab_element_current().style.color = 'rgb(255,255,255)';	
 }
 
 function executeAction(action, position) {
