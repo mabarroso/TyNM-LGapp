@@ -1,17 +1,135 @@
 * {
-	color: rgb(182,182,182);
+	padding: 0;
+	margin: 0;
 }
 
-.tab_off {
+* {
+	font-family:LG Display;
+	margin : 0px 0 0 0px;	
+}
+
+#list {
+	display: block;	
+}
+#busy_indicator {
+	display: none;
+	z-index: 99;
+	position:absolute;
+	width:50%;
+	overflow: auto;
+}
+ 
+div.indicator {
+	background-color:#000;
+	padding-top:150px;
+	padding-bottom:10px;
+	height:700px;
+	//width:100%;
+	color:#FFF;
+	font-family:Arial, Helvetica, sans-serif;
+	text-align:center;
+	overflow: auto;
+}
+
+body {
+	background: none repeat scroll 0 0 #000;
+}
+
+
+#content {
+	background: none repeat scroll 0 0 #000;
+	width:1280px;
 	color: rgb(182,182,182);
-	background-color: rgb(45,45,45);
+	overflow: auto;
+}
+
+#header {
+	background:#000 url('http://www.terrorynadamas.org/wp-content/uploads/2011/03/header-1.jpg') repeat-y;
+	height:80px;
+	width:980px;
+	margin: 0 auto 10px auto;
+}
+
+#preview {
+	width:39%;
+	min-height:100px;
+	float:left;	
+	border-right:1px solid rgb(61,61,59);
+	height:700px;
+}
+
+#control {
+	width:58%;
+	float:left;		
+	overflow: auto;
+	padding-left:10px;
+	border-left:2px solid rgb(31,31,29);
+	height:700px;
+	overflow: auto;
+}
+
+#menu {	
+	width:1010px;
+	margin: 0 auto;
+}
+
+#menu>ul {
+	overflow: auto;
+	width:auto;	
+}
+	
+#menu>ul>li {
+	list-style-type:none;
+	float:left;
+	margin-right:5px;
+}
+
+.button {
+	font-size: 26px;
+	width: 163px;
+	height: 55px;
+	text-align: center;	
+	padding-top:8px;
+}
+
+.button.tab_on {
+	background: url('../image/MARK_BTN_FOCUS.png') no-repeat;
 	
 }
 
-.tab_on {
-	color: rgb(255,255,255);
-	background-color: rgb(91,91,91);
+.button.tab_off {
+	background: url('../image/MARK_BTN_NORMAL.png') no-repeat;
 }
+
+#list {
+	overflow: auto;	
+}
+
+#list>ul>li {
+	list-style-type:none;
+	float:left;
+	width:90%;
+	padding-left:5px;
+	height: 45px;
+}
+
+.track {
+	font-size: 26px;
+	text-align: left;	
+	padding-top:5px;	
+}
+
+.track.tab_on {
+	background: #000 url("../image/MUSICLIST_FOCUS.png");	
+}
+
+.track.tab_off {
+	background: #000;
+}
+
+
+
+
 
 .track {
 	width: 454px;

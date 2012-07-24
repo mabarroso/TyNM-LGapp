@@ -1,7 +1,9 @@
 function homeInit() {
 	init_tabs();
-	tabv2tabh();
+//	tabv2tabh();
+	tabh2tabv();
 	current_on();
+//	loadJSON('http://www.terrorynadamas.org/?feed=rss2');
 }
 
 function keyDown(event){
@@ -66,13 +68,11 @@ function keyDownByKeyCode(keyCodeToProcess){
 }
 
 function current_off() {
-//	tab_element_current().style.color = 'rgb(182,182,182)';
 	e = tab_element_current();
 	e.className = e.className.replace( /tab_on/ , 'tab_off' );
 }
 
 function current_on() {
-//	tab_element_current().style.color = 'rgb(255,255,255)';
 	e = tab_element_current();
 	e.className = e.className.replace( /tab_off/ , 'tab_on' );
 }

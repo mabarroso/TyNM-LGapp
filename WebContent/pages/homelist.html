@@ -10,19 +10,50 @@
 	<link href="../css/tynm.css" rel="stylesheet" type="text/css" />
 </head>
 <body style="overflow-x:hidden;  overflow-y:hidden;margin: 0px;" onload="homeInit();" onkeydown="keyDown(event);">
+<div id="content">
+	<div id="header"></div>
+	<div id="menu">
+		<ul>
+			<li data-orderh='10' class='button tab_off'>Recientes</li>
+			<li data-orderh='20' class='button tab_off'>Temporada V</li>
+			<li data-orderh='30' class='button tab_off'>Temporada IV</li>
+			<li data-orderh='40' class='button tab_off'>Temporada III</li>
+			<li data-orderh='50' class='button tab_off'>Temporada II</li>
+			<li data-orderh='60' class='button tab_off'>Temporada I</li>
+		</ul>
+	</div>
+	<div id="preview">
+		preview
+		<div id='r'>a</div> 		
+	</div>
+	<div id="control">
+		<div id="busy_indicator">
+			<div class="indicator">
+				<img src="../image/LOADING_ANI.gif" width="140" height="140/">
+				<br><br>
+				Loading...
+			</div>
+		</div>
+		<div id="list">
+			<ul>
+				<li data-orderv='110' data-orderh='70' class='track tab_off'>Cinco 110</li>
+				<li data-orderv='130' class='track tab_off'>130</li>
+				<li data-orderv='140' class='track tab_off'>140</li>
+				<li data-orderv='120' class='track tab_off'>120</li>
+			</ul>
+		</div>
+		<!-- 
+		<div id="scrollArea" style="position:absolute; top:193px; left:1200px; margin-top: 0px 0 0 0px; vertical-align: top text-top;" align="center"> 
+			<div id="featuredScroll" style="height: 60px; width:60px; position: absolute; top: 0px; left: -13px; z-index: 2000;" align="center"> 
+				<img id="featuredScrollImg" alt="" onMouseOut="processScroll(event, 'out');" onMouseOver="processScroll(event, 'over');" src="../image/PORT_SCROLL_BAR.png" style="position: absolute; top: 0px; left: 0px; " onmousedown="processScroll(event, 'down');" width="60px" height="60px" > 	 
+			</div> 
+			<div onClick="moveScrollByClick(event);" style="position: absolute; top:8px; left:10px; margin: 0px 0 0 0px; width: 12px; height: 334px; background: url('../image/PORT_SCROLL_BG.png') scroll 50% 0pt transparent;">  </div> 
+		</div>
+		 --> 		
+	</div>		
+</div>
 
 
-<div  id="a1" data-orderh='10' class='oneclass tab_off otherclass'>Uno</div>
-<div  id="a3" data-orderh='30' class='oneclass otherclass tab_off'>Tres</div>
-<div  id="a4" data-orderh='40' class='tab_off oneclass otherclass'>Cuatro</div>
-<span id="a2" data-orderh='20' class='oneclass tab_off otherclass'>Dos</span>
-
-<div id="b1" data-orderv='110' data-orderh='50' class='track tab_off'>Cinco 110</div>
-<div id="b2" data-orderv='130' class='track tab_off'>130</div>
-<div id="b3" data-orderv='140' class='track tab_off'>140</div>
-<div id="b4" data-orderv='120' class='track tab_off'>120</div>
-
-<div id="r">a<br></div>
 
 
 </body>

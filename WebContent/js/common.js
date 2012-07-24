@@ -1,3 +1,5 @@
+var list = new Array();
+var list_to_load = 0;
 var cmn_last_tab = 'h';
 // data-orderh elements
 var cmn_tabh_elements = new Array(); 
@@ -113,4 +115,54 @@ function tabv_elements_first() {
 function tabv_elements_last() {
 	cmn_tabv_element_current = cmn_tabv_elements_n-1;
 	tabh2tabv();
+}
+
+
+function hideBusysign() {
+	document.getElementById('busy_indicator').style.display ='none';
+	document.getElementById('list').style.display ='block';
+}
+	 
+function showBusysign() {
+	document.getElementById('busy_indicator').style.display ='block';
+	document.getElementById('list').style.display ='none';
+}
+	 
+
+function loadJSON(url) {
+	showBusysign();
+  	var yahooPipe = 'http://pipes.yahoo.com/pipes/9oyONQzA2xGOkM4FqGIyXQ/run?&_render=JSON&_callback=processJSON&feed=';
+  	var headID = document.getElementsByTagName("head")[0];        
+  	var newScript = document.createElement('script');
+  		newScript.type = 'text/javascript';
+  		newScript.src = yahooPipe+url;
+  	headID.appendChild(newScript);
+r = document.getElementById('r');
+r.innerHTML = r.innerHTML + 'loading<BR>';
+}
+
+function processJSON(feed){
+r = document.getElementById('r');
+  list[list_to_load] = new Array(); 
+  for(i=0; i<feed.value.items.length; i++) {
+	  list[list_to_load][i] = new Array();
+	  list[list_to_load][i].title = feed.value.items[i].title;
+	  list[list_to_load][i].description = feed.value.items[i].description + "<br/>";
+	  //list[list_to_load][i].media = feed.value.items[i].enclosure.url + "<br/>";	  
+	  //list[list_to_load][i].date  = feed.value.items[i]["y:published"].day + "/" + 
+	  //							    feed.value.items[i]["y:published"].month + "/" +
+	  //							    feed.value.items[i]["y:published"].year;
+	  if ("content:encoded" in feed.value.items[i]) {
+		  list[list_to_load][i].image = feed.value.items[i]["content:encoded"].replace( /^(.*?)"([^"]+.jpg)"(.*?)$/ , '$2.jpg' );
+		  if (list[list_to_load][i].image == feed.value.items[i]["content:encoded"]) {
+			  list[list_to_load][i].image = false;
+		  }
+	  } else {
+		  list[list_to_load][i].image = false;
+	  }
+	  	  
+	  r.innerHTML = r.innerHTML + "---<br/>";
+	  
+  }
+  hideBusysign();
 }
