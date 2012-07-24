@@ -1,5 +1,6 @@
 var list = new Array();
 var list_to_load = 0;
+var current_list = 0;
 var cmn_last_tab = 'h';
 // data-orderh elements
 var cmn_tabh_elements = new Array(); 
@@ -131,38 +132,72 @@ function showBusysign() {
 
 function loadJSON(url) {
 	showBusysign();
-  	var yahooPipe = 'http://pipes.yahoo.com/pipes/9oyONQzA2xGOkM4FqGIyXQ/run?&_render=JSON&_callback=processJSON&feed=';
+  	var yahooPipe = 'http://pipes.yahoo.com/pipes/9oyONQzA2xGOkM4FqGIyXQ/run?&_render=JSON&_callback=processJSON&feed=';  	
   	var headID = document.getElementsByTagName("head")[0];        
   	var newScript = document.createElement('script');
   		newScript.type = 'text/javascript';
   		newScript.src = yahooPipe+url;
+newScript.src = '../js/json1.js';	  		
   	headID.appendChild(newScript);
-r = document.getElementById('r');
-r.innerHTML = r.innerHTML + 'loading<BR>';
 }
 
 function processJSON(feed){
-r = document.getElementById('r');
+//r = document.getElementById('r');
+  current_list = list_to_load; 
   list[list_to_load] = new Array(); 
+  j=0;
   for(i=0; i<feed.value.items.length; i++) {
-	  list[list_to_load][i] = new Array();
-	  list[list_to_load][i].title = feed.value.items[i].title;
-	  list[list_to_load][i].description = feed.value.items[i].description + "<br/>";
-	  //list[list_to_load][i].media = feed.value.items[i].enclosure.url + "<br/>";	  
-	  //list[list_to_load][i].date  = feed.value.items[i]["y:published"].day + "/" + 
-	  //							    feed.value.items[i]["y:published"].month + "/" +
-	  //							    feed.value.items[i]["y:published"].year;
-	  if ("content:encoded" in feed.value.items[i]) {
-		  list[list_to_load][i].image = feed.value.items[i]["content:encoded"].replace( /^(.*?)"([^"]+.jpg)"(.*?)$/ , '$2.jpg' );
-		  if (list[list_to_load][i].image == feed.value.items[i]["content:encoded"]) {
-			  list[list_to_load][i].image = false;
+//r.innerHTML = r.innerHTML + i + "<br/>"; 
+	  if ("enclosure" in feed.value.items[i]) {
+		  list[list_to_load][j] = new Array();
+		  list[list_to_load][j].title = feed.value.items[i].title;
+//r.innerHTML = r.innerHTML + j + ' ' + list[list_to_load][j].title + "<br/>";	  
+		  list[list_to_load][j].description = feed.value.items[i].description + "<br/>";
+		  list[list_to_load][j].media = feed.value.items[i].enclosure.url + "<br/>";	  
+		  list[list_to_load][j].date  = feed.value.items[i]["y:published"].day + "/" + 
+		  							    feed.value.items[i]["y:published"].month + "/" +
+		  							    feed.value.items[i]["y:published"].year;
+		  if ("content:encoded" in feed.value.items[i]) {
+			  list[list_to_load][j].image = feed.value.items[i]["content:encoded"].replace( /^(.*?)"([^"]+.jpg)"(.*?)$/ , '$2.jpg');
+			  if (list[list_to_load][j].image == feed.value.items[i]["content:encoded"]) {
+				  list[list_to_load][j].image = false;
+			  }
+		  } else {
+			  list[list_to_load][j].image = false;
 		  }
-	  } else {
-		  list[list_to_load][i].image = false;
+		  j++;
 	  }
-	  	  
-	  r.innerHTML = r.innerHTML + "---<br/>";
-	  
   }
+  
+  list_update();
   hideBusysign();
+}
+
+function list_update() {
+	items = document.getElementById('items');
+	items.innerHTML = '';
+	for(i=1; i<list[current_list].length; i++) {
+		if (i == i) {
+			data_orderh = ' data-orderh="' + 7 + '" ';
+		} else {
+			data_orderh = '';
+		}
+		items.innerHTML = items.innerHTML + '<li data-orderv="' + i + '" ' + data_orderh + 'class="track tab_off">' + list[current_list][i].title + '</li>';			  
+	}
+	init_tabs();
+	tabh2tabv();
+	current_on();
+	preview_update()
+}
+
+function preview_update() {
+	i = cmn_tabv_element_current + 1;
+	if (list[current_list][i].image) {
+		document.getElementById('image').innerHTML = '<img src="' + list[current_list][i].image + '"/>';
+	} else {
+		document.getElementById('image').innerHTML = '';
+	}
+	document.getElementById('title').innerHTML = list[current_list][i].title;
+	document.getElementById('date').innerHTML = list[current_list][i].date;
+	document.getElementById('text').innerHTML = list[current_list][i].description;
 }

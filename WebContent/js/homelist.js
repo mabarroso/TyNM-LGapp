@@ -3,7 +3,7 @@ function homeInit() {
 //	tabv2tabh();
 	tabh2tabv();
 	current_on();
-//	loadJSON('http://www.terrorynadamas.org/?feed=rss2');
+	loadJSON('http://www.terrorynadamas.org/?feed=rss2');
 }
 
 function keyDown(event){
@@ -21,9 +21,11 @@ function keyDownByKeyCode(keyCodeToProcess){
 			break;
 		case VK_DOWN: 			
 			tabv_elements_next();
+			preview_update();
 			break;
 		case VK_UP: 
 			tabv_elements_previous();
+			preview_update();
 			break;
 		case VK_ENTER: 
 			break;			
