@@ -3,7 +3,8 @@ var list_to_load = 0;
 var current_list = 0;
 var cmn_last_tab = 'h';
 // data-orderh elements
-var cmn_tabh_elements = new Array(); 
+var cmn_tabh_elements = new Array();
+var cmn_tabh_elements_real_n = 0;
 var cmn_tabh_elements_n = 0;
 var cmn_tabh_element_current = 0;
 // data-orderv elements. First must have data-orderh 
@@ -31,10 +32,13 @@ function init_tabs() {
     }
 	cmn_tabh_elements_n = cmn_tabh_elements.length;
 	cmn_tabv_elements_n = cmn_tabv_elements.length;
+	if (cmn_tabh_elements_real_n == 0) {
+		cmn_tabh_elements_real_n = cmn_tabh_elements_n;
+	}
 	
 	cmn_tabh_elements.sort(tabh_elements_sortfunction);
 	cmn_tabv_elements.sort(tabv_elements_sortfunction);
-
+	
 	tabv_elements_first();
 	tabh_elements_first();	
 }
@@ -176,8 +180,11 @@ function list_update() {
 	items = document.getElementById('items');
 	items.innerHTML = '';
 	for(i=1; i<list[current_list].length; i++) {
+		// Use this to allow all h navigation
+		//data_orderh = ' data-orderh="' + (cmn_tabh_elements_real_n + i - 1) + '" ';
+		// Use this to allow partial h navigation
 		if (i == 1) {
-			data_orderh = ' data-orderh="' + 7 + '" ';
+			data_orderh = ' data-orderh="' + (cmn_tabh_elements_real_n + i - 1) + '" ';
 		} else {
 			data_orderh = '';
 		}
