@@ -57,13 +57,18 @@ body {
 	padding:10px;
 }
 
-#img {
-	height:200px;
-	width:200px;
+#image {
+	width:325px;
 	// margin: 0 auto 10px auto;	
 	background:#ccc;
 	float: left;
 	margin: 10px;
+	aoverflow: auto;
+}
+
+#theimage {
+    vertical-align: middle;
+    width: 100%;
 }
 
 #title {
@@ -74,11 +79,12 @@ body {
 #date {
 	font-size: 18px;
 	text-align: center;	
+	margin:10px;
 }
 
 #text {
-	font-size: 23px;
-	text-align: justify;	
+	font-size: 21px;
+	text-align: left;	
 }
 
 #control {
@@ -125,7 +131,7 @@ body {
 }
 
 #list {
-	overflow: auto;	
+	//overflow: auto;
 }
 
 #list>ul>li {
@@ -145,6 +151,7 @@ body {
 }
 .trackline {
 	font-size: 26px;
+	line-height: 38px;
 	text-align: left;	
 	border-top:1px solid rgb(61,61,59);
 	border-bottom:1px solid rgb(31,31,29);
@@ -176,19 +183,3 @@ body {
 }
 
 
-
-.atrack {
-	width: 454px;
-	height: 45px;
-	color: rgb(250,250,250);	
-}
-
-.atrack.tab_on {
-	color: rgb(255,255,255);
-	background:#000 url('../image/MUSICLIST_FOCUS.png') repeat-y;
-}
-
-.atrack.tab_off {
-	color: rgb(182,182,182);
-	background:#000;
-}

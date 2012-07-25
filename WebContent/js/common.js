@@ -208,11 +208,45 @@ function list_update() {
 function preview_update() {
 	i = cmn_tabv_element_current + 1;
 	if (list[current_list][i].image) {
-		document.getElementById('image').innerHTML = '<img src="' + list[current_list][i].image + '"/>';
+		document.getElementById('image').innerHTML = '<img id="theimage" src="' + list[current_list][i].image + '"/>';
 	} else {
 		document.getElementById('image').innerHTML = '';
 	}
 	document.getElementById('title').innerHTML = list[current_list][i].title;
 	document.getElementById('date').innerHTML = list[current_list][i].date;
 	document.getElementById('text').innerHTML = list[current_list][i].description;
+}
+
+function addEvent(object, eventStr, func) {
+	try {
+		object.addEventListener(eventStr, func, false);
+	} catch (e) {
+		alert("addEvent["+eventStr+"]["+func+"] ["+e.message+"]");
+	}
+}
+
+function removeEvent(object, eventStr, func) {
+	try {
+		object.removeEventListener(eventStr, func);
+	} catch (e) {
+		alert("removeEvent["+eventStr+"]["+func+"] ["+e.message+"] ");
+	}
+}
+
+function setElementVisibility(elementId, isVisible) {
+	var e = document.getElementById(elementId);
+	if(e != null) {
+		if (isVisible) {
+			e.style.visibility="";		
+		} else {
+			e.style.visibility="hidden";
+		}
+	}
+}
+
+function setElementBgColor(elementId, color) {
+	var e = document.getElementById(elementId);
+	if(elementId != null) {
+		e.style.backgroundColor = color;
+	}
 }
