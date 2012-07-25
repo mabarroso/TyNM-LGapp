@@ -2,7 +2,7 @@ function homeInit() {
 	init_tabs();
 //	tabv2tabh();
 	tabh2tabv();
-	current_on();
+	current_on();	
 	loadJSON('http://www.terrorynadamas.org/?feed=rss2');
 }
 
@@ -77,6 +77,9 @@ function current_off() {
 function current_on() {
 	e = tab_element_current();
 	e.className = e.className.replace( /tab_off/ , 'tab_on' );
+	if (cmn_tabv_element_current == 0) {
+		cmn_tabh_element_current = cmn_tabh_elements_n-1;
+	}
 }
 
 function executeAction(action, position) {

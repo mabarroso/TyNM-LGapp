@@ -142,26 +142,25 @@ newScript.src = '../js/json1.js';
 }
 
 function processJSON(feed){
-//r = document.getElementById('r');
   current_list = list_to_load; 
   list[list_to_load] = new Array(); 
-  j=0;
+  j=1;
   for(i=0; i<feed.value.items.length; i++) {
-//r.innerHTML = r.innerHTML + i + "<br/>"; 
 	  if ("enclosure" in feed.value.items[i]) {
 		  list[list_to_load][j] = new Array();
 		  list[list_to_load][j].title = feed.value.items[i].title;
-//r.innerHTML = r.innerHTML + j + ' ' + list[list_to_load][j].title + "<br/>";	  
 		  list[list_to_load][j].description = feed.value.items[i].description + "<br/>";
 		  list[list_to_load][j].media = feed.value.items[i].enclosure.url + "<br/>";	  
 		  list[list_to_load][j].date  = feed.value.items[i]["y:published"].day + "/" + 
 		  							    feed.value.items[i]["y:published"].month + "/" +
 		  							    feed.value.items[i]["y:published"].year;
 		  if ("content:encoded" in feed.value.items[i]) {
-			  list[list_to_load][j].image = feed.value.items[i]["content:encoded"].replace( /^(.*?)"([^"]+.jpg)"(.*?)$/ , '$2.jpg');
-			  if (list[list_to_load][j].image == feed.value.items[i]["content:encoded"]) {
+			  image = feed.value.items[i]["content:encoded"].match( /^(.*?)"([^"]+\.jpg)"(.*?)$/m );		  
+			  if (null != image) {
+				  list[list_to_load][j].image = image[2];
+			  } else {
 				  list[list_to_load][j].image = false;
-			  }
+			  }				  
 		  } else {
 			  list[list_to_load][j].image = false;
 		  }
@@ -177,12 +176,21 @@ function list_update() {
 	items = document.getElementById('items');
 	items.innerHTML = '';
 	for(i=1; i<list[current_list].length; i++) {
-		if (i == i) {
+		if (i == 1) {
 			data_orderh = ' data-orderh="' + 7 + '" ';
 		} else {
 			data_orderh = '';
 		}
-		items.innerHTML = items.innerHTML + '<li data-orderv="' + i + '" ' + data_orderh + 'class="track tab_off">' + list[current_list][i].title + '</li>';			  
+
+		title = list[current_list][i].title;
+		//if (title.length > 41) { 			
+		//	title = title.substring(0,43)+'...';
+		//}
+		
+		items.innerHTML = items.innerHTML + '<li class="trackline">' +
+				'<span class="number">' + i + '</span>' + 		
+				'<span data-orderv="' + i + '" ' + data_orderh + 'class="track tab_off">' + title + '</span>' +				 			
+				'</li>';			  
 	}
 	init_tabs();
 	tabh2tabv();
