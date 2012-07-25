@@ -1,0 +1,172 @@
+.mediaControlStyle {
+	position: absolute;
+	margin : 0px 0 0 0px;
+	top: 532px;
+	left: 551px;
+	width: 680px;
+	height: 92px;
+	background:red;
+	background: url('../image/PLAYER/MUSIC_PLAYER_BG.png');
+	z-index: 1200;
+}
+
+
+/*play control */
+
+.playTimeCurStyle {
+	font-size: 23px;
+	text-align:center;
+	/*
+	right:85px;
+	*/
+	left:535px;
+	color: rgb(130,130,130);
+	vertical-align: middle;
+	position: absolute;
+	top: 41px;
+	/*
+	width:60px;
+	*/
+	width:60px;
+}
+
+.playTimeSlashStyle{
+	font-size: 23px;
+	text-align:center;
+	left:595px;
+	color: rgb(250,250,250);
+	vertical-align: middle;
+	position: absolute;
+	top:41px;
+	width:10px;
+}
+
+.playTimeTotalStyle {
+	font-size: 23px;
+	text-align:center;
+	/*
+	right:20px;
+	*/
+	left:605px;
+	color: rgb(250,250,250);
+	vertical-align: middle;
+	position: absolute;
+	top: 41px;
+	width:60px;
+}
+
+.playTimeCurFullStyle {
+	font-size: 28px;
+	text-align:center;
+	color: #fafafa;
+	vertical-align: middle;
+	position: absolute;
+	top: 25px;
+	left : 900px;
+	height: 30px;
+	width: 120px;
+}
+
+.playTimeTotalFullStyle {
+	font-size: 28px;
+	text-align:center;
+	color: rgb(157,157,157);
+	vertical-align: middle;
+	position: absolute;
+	top: 25px;
+	left : 1010px;
+	height: 30px;
+	width: 120px;
+}
+
+.totalBarFullStyle {
+	position:absolute;
+	top: 40px;
+	left: 132px;
+	background-color: rgb(31,31,29);
+	height: 15px;
+	width: 750px;
+}
+
+.bufferBarStyle {
+	position:absolute;
+	top: 21px;
+	left: 76px;
+	height: 10px;
+	width: 0px;
+	z-index: 1200;
+}
+
+.bufferBarFullStyle {
+	position:absolute;
+	top: 40px;
+	left: 132px;
+	background-color: rgb(27,59,46);
+	height: 15px;
+	width: 0px;
+	z-index: 10200;
+}
+
+.progressBarStyle {
+	position:absolute;
+	top: 49px;
+	left: 216px;
+	background: url('../image/PLAYER/MUSIC_PLAYER_PGBAR_M.png');
+	height: 12px;
+	width: 0px;
+	z-index: 1300;
+}
+
+
+.totalBarStyle {
+	position:absolute;
+	top: 49px;
+	left: 216px;
+	background: url('../image/PLAYER/MUSIC_PLAYER_PGBG_M.png');
+	height: 12px;
+	width: 312px;
+}
+
+.progressFocusStyle {
+	position:absolute;
+	top: 42px;
+	left: 204px;
+	z-index: 1400;
+	width: 27px;
+	height: 27px;
+}
+
+.progressBarFullStyle {
+	position:absolute;
+	top: 51px;
+	left: 216px;
+	background: url('../image/PLAYER/MUSIC_PLAYER_PGBAR_M.png');
+	height: 12px;
+	width: 290px;
+	z-index: 10300;
+}
+
+
+
+
+.progressFocusFullStyle {
+	position:absolute;
+	top: 28px;
+	/*  default
+	left: 130px;*/
+	left: 106px;
+	z-index: 10400;
+	width: 40px;
+	height: 40px;
+}
+
+
+.musicNameStyle {
+	font-size: 24px;
+	text-align:left;
+	top: 11px;
+	left : 216px;
+	color: rgb(250,250,250);
+	vertical-align: middle;
+	position: absolute;
+}

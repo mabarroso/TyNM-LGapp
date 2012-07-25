@@ -8,6 +8,7 @@
  	<script type="text/javascript" src="../js/homelist.js"></script>
 	<link href="../css/lge.css" rel="stylesheet" type="text/css" />
 	<link href="../css/tynm.css" rel="stylesheet" type="text/css" />
+	<link href="../css/player.css" rel="stylesheet" type="text/css" />	
 </head>
 <body style="overflow-x:hidden;  overflow-y:hidden;margin: 0px;" onload="homeInit();" onkeydown="keyDown(event);">
 <div id="content">
@@ -49,12 +50,51 @@
 			</div> 
 			<div onClick="moveScrollByClick(event);" style="position: absolute; top:8px; left:10px; margin: 0px 0 0 0px; width: 12px; height: 334px; background: url('../image/PORT_SCROLL_BG.png') scroll 50% 0pt transparent;">  </div> 
 		</div>
-		 --> 		
+		 --> 	
+		<!-- media Div -->
+		<div id="mediaDiv" align="center" style="position: absolute; top: 190px; left: 30px; width: 0px; height: 0px; z-index: 1100; visibility: hidden; display: block; ">
+			<!--
+			<object id="media" data="" type="application/x-netcast-av" width="0" height="0" autostart="true" downloadable="false">
+			-->
+			<object type="audio/x-ms-wma" width="0" height="0" id="media">
+			</object>
+		</div> 
+		<!-- media control -->
+		<div id="mediaControl" class="mediaControlStyle" style="top:606px;" >
+				<div id="RwIcon" style="position: absolute; top: 22px; left: 19px; width: 40px; height: 40px; margin: 0px 0 0 0px;" align="center"  >
+					<img id="rwlCtrl" height="40px" width="40px" border="0" src="../image/PLAYER/MUSIC_PLAYER_ICON_REW.png" alt="" onmouseout="processIconFocusHandle('RwIcon','out');" onmouseover="processIconFocusHandle('RwIcon','over');" onmousedown="executeAction('rw');" >
+				</div>
+				<div id="StopIcon" style="position: absolute; top: 22px; left: 63px; width: 40px; height: 40px; margin: 0px 0 0 0px;" align="center"  >
+					<img id="stopCtrl" height="40px" width="40px" border="0" src="../image/PLAYER/MUSIC_PLAYER_ICON_STOP.png" alt="" onmouseout="processIconFocusHandle('StopIcon','out');" onmouseover="processIconFocusHandle('StopIcon','over');" onmousedown="executeAction('stop');">
+				</div>
+				<div id="PlayIcon" style="position: absolute; top: 22px; left: 107px; width: 40px; height: 40px; margin: 0px 0 0 0px;" align="center" >						
+					<img id="playCtrl" height="40px" width="40px" border="0" src="../image/PLAYER/MUSIC_PLAYER_ICON_PLAY.png" alt="" onmouseout="processIconFocusHandle('PlayIcon','out');" onmouseover="processIconFocusHandle('PlayIcon','over');" onmousedown="executeAction('playToggle');" >
+				</div>
+				<div id="FwIcon" style="position: absolute; top: 22px; left: 151px; width: 40px; height: 40px; margin: 0px 0 0 0px;" align="center"  >
+					<img id="fwlCtrl" height="40px" width="40px" border="0" src="../image/PLAYER/MUSIC_PLAYER_ICON_FF.png" alt="" onmouseout="processIconFocusHandle('FwIcon','out');" onmouseover="processIconFocusHandle('FwIcon','over');" onmousedown="executeAction('fw');" >
+				</div>
+				<div id="musicName" class="musicNameStyle"></div>
+				<div id="totalBar" class="totalBarStyle" onmouseover="progressIconHandle(event, 'over');" ></div>
+				<div id="bufferBar" class="bufferBarStyle" onmouseover="progressIconHandle(event, 'over');" ></div>
+				<div id="progressBar" class="progressBarStyle" onmouseover="progressIconHandle(event, 'over');" ></div>
+				<div id="progressFocus" class="progressFocusStyle" onmousedown="progressIconHandle(event, 'down');" onmousemove="motionMoveOnProgressBar(event)" onmouseover="motionMoveOnProgressBar(event);" align="center" style="visibility:hidden">
+					<img alt="" src="../image/PLAYER/MUSIC_PLAYER_PGBAR_JUMP.png" width="27px" height="27px">
+				</div>
+				<div id="playTimeCur" class="playTimeCurStyle">00:00</div>
+				<div id="playTimeSlash" class="playTimeSlashStyle">/</div>
+				<div id="playTimeTotal" class="playTimeTotalStyle">00:00</div>
+		</div>
+		 	
 	</div>		
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
 </div>
-
-
-
 
 </body>
 </html>
