@@ -153,7 +153,7 @@ function loadJSON(url) {
   	var newScript = document.createElement('script');
   		newScript.type = 'text/javascript';
   		newScript.src = yahooPipe+url;
-	newScript.src = '../js/json1.js';	  		
+//newScript.src = '../js/json2.js';	  		
   	headID.appendChild(newScript);
 }
 
@@ -166,19 +166,23 @@ function processJSON(feed){
 		  list[list_to_load][j] = new Array();
 		  list[list_to_load][j].title = feed.value.items[i].title;
 		  list[list_to_load][j].description = feed.value.items[i].description + "<br/>";
-		  list[list_to_load][j].media = feed.value.items[i].enclosure.url + "<br/>";	  
-		  list[list_to_load][j].date  = feed.value.items[i]["y:published"].day + "/" + 
-		  							    feed.value.items[i]["y:published"].month + "/" +
-		  							    feed.value.items[i]["y:published"].year;
+		  list[list_to_load][j].media = feed.value.items[i].enclosure.url + "<br/>";	 
+		  if (null != feed.value.items[i]["y:published"]) {
+		  	list[list_to_load][j].date  = 	feed.value.items[i]["y:published"].day + "/" + 
+		  									feed.value.items[i]["y:published"].month + "/" +
+		  									feed.value.items[i]["y:published"].year;
+	  	  } else {
+	  		list[list_to_load][j].date  = 	'';
+	  	  }
 		  if ("content:encoded" in feed.value.items[i]) {
 			  image = feed.value.items[i]["content:encoded"].match( /^(.*?)"([^"]+\.jpg)"(.*?)$/m );		  
 			  if (null != image) {
 				  list[list_to_load][j].image = image[2];
 			  } else {
-				  list[list_to_load][j].image = false;
+				  list[list_to_load][j].image = '../image/Terror_y_Nada_MAS.jpg';
 			  }				  
 		  } else {
-			  list[list_to_load][j].image = false;
+			  list[list_to_load][j].image = '../image/Terror_y_Nada_MAS.jpg';;
 		  }
 		  j++;
 	  }

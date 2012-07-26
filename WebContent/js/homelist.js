@@ -79,6 +79,8 @@ function action() {
 	load = e.dataset.load;
 	if (null != load) {
 		current_off();
+		list_to_load = load;
+		current_list = load;
 		loadJSON(sources[load]);
 	}
 	

@@ -132,7 +132,11 @@ body {
 }
 
 #list {
-	//overflow: auto;
+	overflow: hidden;
+}
+
+#list>ul {
+	overflow: hidden;
 }
 
 #list>ul>li {
