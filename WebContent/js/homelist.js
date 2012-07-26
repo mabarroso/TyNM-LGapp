@@ -28,6 +28,7 @@ function keyDownByKeyCode(keyCodeToProcess){
 			preview_update();
 			break;
 		case VK_ENTER: 
+			action();
 			break;			
 		case VK_PAGE_UP: 
 			break;
@@ -67,6 +68,20 @@ function keyDownByKeyCode(keyCodeToProcess){
 			break;
 	}
 	current_on();
+}
+
+function action() {
+	e = tab_element_current();
+	play = e.dataset.play;
+	if (null != play) {
+		alert('play '+ play);
+	}
+	load = e.dataset.load;
+	if (null != load) {
+		current_off();
+		loadJSON(sources[load]);
+	}
+	
 }
 
 function current_off() {

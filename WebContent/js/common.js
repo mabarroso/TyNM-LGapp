@@ -1,3 +1,11 @@
+var sources = new Array(
+	'http://www.terrorynadamas.org/?feed=rss2',
+	'http://feeds.feedburner.com/archivoTynmTemporadaV',
+	'http://feeds.feedburner.com/archivoTynmTemporadaIV',
+	'http://feeds.feedburner.com/archivoTynmTemporadaIII',
+	'http://feeds.feedburner.com/archivoTynmTemporadaII',
+	'http://feeds.feedburner.com/archivoTynmTemporadaI'
+);
 var list = new Array();
 var list_to_load = 0;
 var current_list = 0;
@@ -145,7 +153,7 @@ function loadJSON(url) {
   	var newScript = document.createElement('script');
   		newScript.type = 'text/javascript';
   		newScript.src = yahooPipe+url;
-newScript.src = '../js/json1.js';	  		
+	newScript.src = '../js/json1.js';	  		
   	headID.appendChild(newScript);
 }
 
@@ -208,7 +216,8 @@ function list_update() {
 		
 		items.innerHTML = items.innerHTML + 
 				'<li class="trackline tab_off" data-orderv="' + i + '" ' + data_orderh + 
-					'onmouseover="processFocusHandle(\'v\',' + (i-1) + ');">' +		
+					'onmouseover="processFocusHandle(\'v\',' + (i-1) + ');" onmousedown="action();" ' +
+					'data-play="' + (i-1) + '">' +
 				'<span class="number">' + i + '</span>' + 		
 				'<span class="track">' + list[current_list][i].title + '</span>' +
 				'<div class="play_btn_off"></div>'+
