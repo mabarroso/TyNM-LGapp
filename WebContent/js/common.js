@@ -38,6 +38,10 @@ function init_tabs() {
 	
 	cmn_tabh_elements.sort(tabh_elements_sortfunction);
 	cmn_tabv_elements.sort(tabv_elements_sortfunction);
+
+	for(i = 0; i < cmn_tabh_elements_n; i++) {
+		cmn_tabh_elements[i].setAttribute('onmouseover', 'processFocusHandle(\'h\',' + i + ');');		
+	}
 	
 	tabv_elements_first();
 	tabh_elements_first();	
@@ -179,11 +183,12 @@ function processJSON(feed){
 function processFocusHandle(order, n) {
 	current_off();
 	if (order == 'v') {
-		cmn_tabv_element_current = n;
 		tabh2tabv();
+		cmn_tabv_element_current = n;
+		preview_update();
 	} else {
-		cmn_tabh_element_current = n;
-		tabv2tabh();		
+		tabv2tabh();
+		cmn_tabh_element_current = n;				
 	}
 	current_on();
 }
@@ -200,16 +205,10 @@ function list_update() {
 		} else {
 			data_orderh = '';
 		}
-
-		title = list[current_list][i].title;
-		//if (title.length > 41) { 			
-		//	title = title.substring(0,43)+'...';
-		//}
 		
-		items.innerHTML = items.innerHTML + '<li class="trackline" onmouseover="processFocusHandle(\'v\',' + (i-1) + ');">' +
-		
+		items.innerHTML = items.innerHTML + '<li class="trackline" onmouseover="processFocusHandle(\'v\',' + (i-1) + ');">' +		
 				'<span class="number">' + i + '</span>' + 		
-				'<span data-orderv="' + i + '" ' + data_orderh + 'class="track tab_off">' + title + '</span>' +				 			
+				'<span data-orderv="' + i + '" ' + data_orderh + 'class="track tab_off">' + list[current_list][i].title + '</span>' +				 			
 				'</li>';			  
 	}
 	init_tabs();
