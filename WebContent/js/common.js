@@ -170,10 +170,22 @@ function processJSON(feed){
 		  }
 		  j++;
 	  }
-  }
+  }  
   
   list_update();
   hideBusysign();
+}
+
+function processFocusHandle(order, n) {
+	current_off();
+	if (order == 'v') {
+		cmn_tabv_element_current = n;
+		tabh2tabv();
+	} else {
+		cmn_tabh_element_current = n;
+		tabv2tabh();		
+	}
+	current_on();
 }
 
 function list_update() {
@@ -194,7 +206,8 @@ function list_update() {
 		//	title = title.substring(0,43)+'...';
 		//}
 		
-		items.innerHTML = items.innerHTML + '<li class="trackline">' +
+		items.innerHTML = items.innerHTML + '<li class="trackline" onmouseover="processFocusHandle(\'v\',' + (i-1) + ');">' +
+		
 				'<span class="number">' + i + '</span>' + 		
 				'<span data-orderv="' + i + '" ' + data_orderh + 'class="track tab_off">' + title + '</span>' +				 			
 				'</li>';			  
