@@ -9,8 +9,9 @@
 }
 
 #list {
-	display: block;	
+	display: block;
 }
+
 #busy_indicator {
 	display: none;
 	z-index: 99;
@@ -50,7 +51,7 @@ body {
 }
 
 #preview {
-	width:47%;
+	width:42%;
 	float:left;	 
 	border-right:1px solid rgb(61,61,59);
 	height:700px;
@@ -88,7 +89,7 @@ body {
 }
 
 #control {
-	width:50%;
+	width:55%;
 	float:left;		
 	overflow: auto;
 	padding-left:10px;
@@ -155,13 +156,13 @@ body {
 	text-align: left;	
 	border-top:1px solid rgb(61,61,59);
 	border-bottom:1px solid rgb(31,31,29);
-	overflow: auto;		
+	overflow: auto;	
 }
 
 .track {
 	text-align: left;	
-	width: 505px;
-	height: 45px;
+	width: 508px;
+	height: 43px;
 	display:block;
 	float: left;
 	padding-top:7px; 
@@ -169,11 +170,11 @@ body {
 	overflow: hidden;	
 }
 
-.track.tab_on {
-	background: #000 url("../image/MUSICLIST_FOCUS.png");	
+.tab_on>.track {
+	background: #000 url("../image/MUSICLIST_FOCUS.png") no-repeat;	
 }
 
-.track.tab_off {
+.tab_off>.track {
 	background: #000;
 }
 
@@ -182,4 +183,34 @@ body {
 	overflow: auto;
 }
 
+.play_btn_off {
+	width:95px;
+	height:40px;
+	background: #000 url("../image/PLAY_BTN_NORMAL.png");
+	float:right;
+	margin-top:5px;
+}
 
+.tab_on>div.play_btn_off {
+	width:95px;
+	height:40px;
+	background: #000 url("../image/PLAY_BTN_FOCUS.png");
+	float:right;
+	margin-top:5px;
+}
+
+.play_btn_on {
+	width:95px;
+	height:40px;
+	background: #000 url("../image/PLAYNOW_BTN_NORMAL.png");
+	float:right;
+	margin-top:5px;
+}
+
+.tab_on>div.play_btn_on {
+	width:95px;
+	height:40px;
+	background: #000 url("../image/PLAYNOW_BTN_FOCUS.png");
+	float:right;
+	margin-top:5px;
+}

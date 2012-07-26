@@ -206,9 +206,12 @@ function list_update() {
 			data_orderh = '';
 		}
 		
-		items.innerHTML = items.innerHTML + '<li class="trackline" onmouseover="processFocusHandle(\'v\',' + (i-1) + ');">' +		
+		items.innerHTML = items.innerHTML + 
+				'<li class="trackline tab_off" data-orderv="' + i + '" ' + data_orderh + 
+					'onmouseover="processFocusHandle(\'v\',' + (i-1) + ');">' +		
 				'<span class="number">' + i + '</span>' + 		
-				'<span data-orderv="' + i + '" ' + data_orderh + 'class="track tab_off">' + list[current_list][i].title + '</span>' +				 			
+				'<span class="track">' + list[current_list][i].title + '</span>' +
+				'<div class="play_btn_off"></div>'+
 				'</li>';			  
 	}
 	init_tabs();
