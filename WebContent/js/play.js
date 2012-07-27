@@ -14,17 +14,16 @@ var pAll=0;
 var progressBarPx;
 
 function audioPlay(id){
-	current_song = id;
+	current_song = id-1;
 	playInit();
 	playButtonDown = new Array();
 	playButtonDown[id] = 1;
-	
-	var audio_player_obj = '<object id="media" data="'+songs[id]+'" type="audio/x-pn-realaudio-plugin" width="0" height="0" autostart="true" downloadable="false"></object>';
+alert(list[current_list][current_song].media);	
+	var audio_player_obj = '<object id="media" data="'+ list[current_list][current_song].media + '" type="audio/x-pn-realaudio-plugin" width="0" height="0" autostart="true" downloadable="false"></object>';
 	document.getElementById('mediaDiv').innerHTML=audio_player_obj;
-	document.getElementById('musicName').innerHTML=songTitle[id];
+	document.getElementById('musicName').innerHTML=list[current_list][id].title;
 	//////// play Button Image
-	tmpId = id -1;	
-	tmpId = tmpId % blockSize;
+/*
   if(id > ((pageNo + 1) * blockSize)){
   	keyDownByKeyCode(VK_DOWN);
   }else if(id <=((pageNo) * blockSize)){
@@ -32,35 +31,8 @@ function audioPlay(id){
   }else{
   	//do-nothing
   }
-	
-	if(menuGb == 0){		
-
-		for(i=0; i<blockSize; i++){
-			setElementBackground("play_0"+i, "url('../image/PLAY_BTN_NORMAL.png')");		
-		}			
-
-		setElementBackground("play_0"+tmpId, "url('../image/PLAYNOW_BTN_NORMAL.png')");
-		doHighlight("play_0"+tmpId);
-
-	}else if(menuGb == 1){
-			if(selectPlayListKeyId == "menu_21"){
-			 	 listLen = pTitleList1.length;
-			}else if(selectPlayListKeyId == "menu_22"){
-				listLen = pTitleList2.length;	
-			}else if(selectPlayListKeyId == "menu_23"){
-				listLen =  pTitleList3.length;
-			}else{
-				listLen =  pTitleList4.length;
-			}
-			
-			for(var i = 0 ; i <listLen ; i ++){
-				setElementBackground("playButton_0"+i, "url('../image/PLAY_BTN_NORMAL.png')");	
-			}
-				setElementBackground("playButton_0"+tmpId, "url('../image/PLAYNOW_BTN_NORMAL.png')");
-				doHighlight("playButton_0"+tmpId);
-
-	}
-	setImgSrc('playCtrl', "../image/PLAYER/MUSIC_PLAYER_ICON_PAUSE.png");	 
+*/  
+  setImgSrc('playCtrl', "../image/PLAYER/MUSIC_PLAYER_ICON_PAUSE.png");	 
 }
 
 function playInit() {
@@ -73,48 +45,8 @@ function playInit() {
 		m.onError = onError;		
 	}
 	tmOut = setInterval("refreshMediaControl();", 1000);
-	setTdElementText("versionInfo", versionStr);
+//	setTdElementText("versionInfo", versionStr);
 	setTdElementText("playTimeCur", getTimeText(0));
-
-	//add
-	//song initialize
-	if(menuGb == 0){
-			for(var i = 1 ; i <= listSize ; i ++){
-				songs[i] = AudioUrl[i];	
-				songTitle[i] = AudioTitle[i];		
-			}
-	}else if(menuGb == 1) {
-			switch(selectPlayListKeyId){
-				//Play List1
-				case "menu_21":
-						for(var i = 0 ; i < pTitleList1.length ; i ++){
-							songs[i+1] = pUrlList1[i];	
-							songTitle[i+1] = pTitleList1[i];		
-						}
-					break;
-				//Play List2	
-				case "menu_22":
-				 		for(var i = 0 ; i < pTitleList2.length ; i ++){
-							songs[i+1] = pUrlList2[i];	
-							songTitle[i+1] = pTitleList2[i];		
-						}
-					break;
-				//Play List3	
-				case "menu_23":
-					for(var i = 0 ; i < pTitleList3.length ; i ++){
-							songs[i+1] = pUrlList3[i];	
-							songTitle[i+1] = pTitleList3[i];		
-					}
-					break;
-				//Play List4	
-				case "menu_24":
-					for(var i = 0 ; i < pTitleList4.length ; i ++){
-							songs[i+1] = pUrlList4[i];	
-							songTitle[i+1] = pTitleList4[i];		
-					}
-					break;				
-				}
-	}
 
 }
 

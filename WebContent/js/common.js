@@ -153,7 +153,7 @@ function loadJSON(url) {
   	var newScript = document.createElement('script');
   		newScript.type = 'text/javascript';
   		newScript.src = yahooPipe+url;
-//newScript.src = '../js/json2.js';	  		
+newScript.src = '../js/json2.js';	  		
   	headID.appendChild(newScript);
 }
 
@@ -278,3 +278,18 @@ function setElementBgColor(elementId, color) {
 		e.style.backgroundColor = color;
 	}
 }
+
+function setImgSrc(elementId, src) {
+	var e = document.getElementById(elementId);
+	if(e != null) {
+		e.src = src;
+	}
+}
+
+function setTdElementText(elementId, text) {
+	var e = document.getElementById(elementId);
+	if( e != null) {
+		e.firstChild.nodeValue = text;
+	}
+}
+

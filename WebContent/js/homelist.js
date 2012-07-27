@@ -75,6 +75,7 @@ function action() {
 	play = e.dataset.play;
 	if (null != play) {
 		alert('play '+ play);
+		audioPlay(play);
 	}
 	load = e.dataset.load;
 	if (null != load) {
