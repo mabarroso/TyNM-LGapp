@@ -74,7 +74,6 @@ function action() {
 	e = tab_element_current();
 	play = e.dataset.play;
 	if (null != play) {
-		alert('play '+ play);
 		audioPlay(play);
 	}
 	load = e.dataset.load;
@@ -97,6 +96,3 @@ function current_on() {
 	e.className = e.className.replace( /tab_off/ , 'tab_on' );	
 }
 
-function executeAction(action, position) {
-	
-}

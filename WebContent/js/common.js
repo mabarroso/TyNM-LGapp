@@ -9,6 +9,8 @@ var sources = new Array(
 var list = new Array();
 var list_to_load = 0;
 var current_list = 0;
+var play_list = -1;
+var play_song = -1;
 var cmn_last_tab = 'h';
 // data-orderh elements
 var cmn_tabh_elements = new Array();
@@ -218,13 +220,18 @@ function list_update() {
 			data_orderh = '';
 		}
 		
+		if ((play_list == current_list) && (play_song == i)) {
+			btn = 'play_btn_on';
+		} else {
+			btn = 'play_btn_off';  
+		}
 		items.innerHTML = items.innerHTML + 
 				'<li class="trackline tab_off" data-orderv="' + (i + 1) + '" ' + data_orderh + 
 					'onmouseover="processFocusHandle(\'v\',' + (i) + ');" onmousedown="action();" ' +
 					'data-play="' + (i) + '">' +
 				'<span class="number">' + (i+1) + '</span>' + 		
 				'<span class="track">' + list[current_list][i].title + '</span>' +
-				'<div class="play_btn_off"></div>'+
+				'<div class="' + btn + '"></div>'+
 				'</li>';			  
 	}
 	init_tabs();

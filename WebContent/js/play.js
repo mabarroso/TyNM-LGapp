@@ -15,13 +15,12 @@ var progressBarPx;
 
 function audioPlay(id){
 	current_song = id;
-alert('current_list '+current_list);
-alert('current_song '+current_song);	
-alert(list[current_list][current_song].media);	
+	play_list = current_list;
+	play_song = current_song;		
+	list_update();
 	playInit();
 	playButtonDown = new Array();
 	playButtonDown[id] = 1;
-alert(list[current_list][current_song].media);	
 	var audio_player_obj = '<object id="media" data="'+ list[current_list][current_song].media + '" type="audio/x-pn-realaudio-plugin" width="0" height="0" autostart="true" downloadable="false"></object>';
 	document.getElementById('mediaDiv').innerHTML=audio_player_obj;
 	document.getElementById('musicName').innerHTML=list[current_list][id].title;
@@ -39,7 +38,6 @@ alert(list[current_list][current_song].media);
 }
 
 function playInit() {
-	//	alert("playInit");
 	setElementVisibility("progressFocus", false);
 	setImgSrc('playCtrl', "../image/PLAYER/MUSIC_PLAYER_ICON_PAUSE.png");	
 	var m = getMedia(); 
@@ -847,51 +845,18 @@ function refreshMediaControl() {
 		duration = pi.duration;
 	}
 
-	// add
-	// if at end of song then play next song in playlist
-		/*if( duration != 0 && currentPosition != 0){
-			if (currentPosition == duration){	
-			//	alert("currentPosition : " + currentPosition + " duration : " + duration);
-				//alert("NEXT");
-				if(pAll == 1){
-						next_song(2); 
-						return;
-				}
-			}
-		} 	*/
 		
-		
-	// if at end of song then play next song in playlist
-	/*if (currentPosition == duration){	
-		next_song(2); 
-		return;
-	}*/
-
-			
 	if(playMode=='scan') {
-		//alert("refreshMediaControl " ); 
 		totalTime = getTimeText(duration);
 		curTime = getTimeText(currentPosition);	
-		//bitrates 
-		//setInnerHtml("bitrates",getBitrateImageTag(level));
-		//updateBarElement
-
-		//playTime  0:00:00/0:00:00 
-		//alert("curTime/totalTime : " + curTime +"/" + totalTime);
-		//modified as ux change
-		//setTdElementText("playTimeTotal", "/" + getTimeText(duration));	
 		setTdElementText("playTimeTotal", getTimeText(duration));	
 		setTdElementText("playTimeCur", getTimeText(currentPosition));
 		updateBarElement(pi.bufEnd, currentPosition, duration);
-			
 		
 		var pp =  Math.round((currentPosition/duration)*300);
 		pp = new Number(pp)+75;
 		document.getElementById("progressPointer").style.left = pp + "px" ;
 	} 
-	
-	//	alert("curTime/totalTime : " + curTime +"/" + totalTime);
-
 	
 	if(seekByRCUDelaySec > 0) {
 		seekByRCUDelaySec --;
@@ -975,17 +940,8 @@ function playMediaAtPosition(position) {
 		setImgSrc('playCtrl', "../image/PLAYER/MUSIC_PLAYER_ICON_PAUSE.png");
 	}
 	m.play(1);
-	//if(curPlayState == 1){
-	//  m.play(1);
-  //}else if(curPlayState == 2){
-	//  m.play(0);
-  //}else{
-  //	//to do
-  //}
 	refreshMediaControl();
 }
-
-
 
 // add Eunmi
 
