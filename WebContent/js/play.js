@@ -14,7 +14,10 @@ var pAll=0;
 var progressBarPx;
 
 function audioPlay(id){
-	current_song = id-1;
+	current_song = id;
+alert('current_list '+current_list);
+alert('current_song '+current_song);	
+alert(list[current_list][current_song].media);	
 	playInit();
 	playButtonDown = new Array();
 	playButtonDown[id] = 1;

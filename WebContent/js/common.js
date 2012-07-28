@@ -160,7 +160,7 @@ newScript.src = '../js/json2.js';
 function processJSON(feed){
   current_list = list_to_load; 
   list[list_to_load] = new Array(); 
-  j=1;
+  j=0;
   for(i=0; i<feed.value.items.length; i++) {
 	  if ("enclosure" in feed.value.items[i]) {
 		  list[list_to_load][j] = new Array();
@@ -208,21 +208,21 @@ function processFocusHandle(order, n) {
 function list_update() {
 	items = document.getElementById('items');
 	items.innerHTML = '';
-	for(i=1; i<list[current_list].length; i++) {
+	for(i=0; i<list[current_list].length; i++) {
 		// Use this to allow all h navigation
 		//data_orderh = ' data-orderh="' + (cmn_tabh_elements_real_n + i - 1) + '" ';
 		// Use this to allow partial h navigation
-		if (i == 1) {
-			data_orderh = ' data-orderh="' + (cmn_tabh_elements_real_n + i - 1) + '" ';
+		if (i == 0) {
+			data_orderh = ' data-orderh="' + (cmn_tabh_elements_real_n + i) + '" ';
 		} else {
 			data_orderh = '';
 		}
 		
 		items.innerHTML = items.innerHTML + 
-				'<li class="trackline tab_off" data-orderv="' + i + '" ' + data_orderh + 
-					'onmouseover="processFocusHandle(\'v\',' + (i-1) + ');" onmousedown="action();" ' +
-					'data-play="' + (i-1) + '">' +
-				'<span class="number">' + i + '</span>' + 		
+				'<li class="trackline tab_off" data-orderv="' + (i + 1) + '" ' + data_orderh + 
+					'onmouseover="processFocusHandle(\'v\',' + (i) + ');" onmousedown="action();" ' +
+					'data-play="' + (i) + '">' +
+				'<span class="number">' + (i+1) + '</span>' + 		
 				'<span class="track">' + list[current_list][i].title + '</span>' +
 				'<div class="play_btn_off"></div>'+
 				'</li>';			  
