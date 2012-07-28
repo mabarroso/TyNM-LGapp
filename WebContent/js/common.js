@@ -165,8 +165,8 @@ function processJSON(feed){
 	  if ("enclosure" in feed.value.items[i]) {
 		  list[list_to_load][j] = new Array();
 		  list[list_to_load][j].title = feed.value.items[i].title;
-		  list[list_to_load][j].description = feed.value.items[i].description + "<br/>";
-		  list[list_to_load][j].media = feed.value.items[i].enclosure.url + "<br/>";	 
+		  list[list_to_load][j].description = feed.value.items[i].description;
+		  list[list_to_load][j].media = feed.value.items[i].enclosure.url;	 
 		  if (null != feed.value.items[i]["y:published"]) {
 		  	list[list_to_load][j].date  = 	feed.value.items[i]["y:published"].day + "/" + 
 		  									feed.value.items[i]["y:published"].month + "/" +
