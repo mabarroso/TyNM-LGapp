@@ -16,7 +16,7 @@ var progressBarPx;
 function audioPlay(id){
 	current_song = id;
 	play_list = current_list;
-	play_song = current_song;		
+	play_song = current_song;	
 	list_update();
 	playInit();
 	playButtonDown = new Array();

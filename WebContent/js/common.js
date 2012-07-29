@@ -155,7 +155,7 @@ function loadJSON(url) {
   	var newScript = document.createElement('script');
   		newScript.type = 'text/javascript';
   		newScript.src = yahooPipe+url;
-newScript.src = '../js/json2.js';	  		
+newScript.src = '../js/json1.js';	  		
   	headID.appendChild(newScript);
 }
 
@@ -241,7 +241,7 @@ function list_update() {
 }
 
 function preview_update() {
-	i = cmn_tabv_element_current + 1;
+	i = cmn_tabv_element_current;
 	if (list[current_list][i].image) {
 		document.getElementById('image').innerHTML = '<img id="theimage" src="' + list[current_list][i].image + '"/>';
 	} else {
