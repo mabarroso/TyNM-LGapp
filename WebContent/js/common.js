@@ -7,8 +7,11 @@ var sources = new Array(
 	'http://feeds.feedburner.com/archivoTynmTemporadaI'
 );
 var list = new Array();
+var list_view_n = 8;
 var list_to_load = 0;
-var current_list = 0;
+var list_current = 0;
+var list_current_n;
+var list_current_first;
 var play_list = -1;
 var play_song = -1;
 var cmn_last_tab = 'h';
@@ -49,7 +52,7 @@ function init_tabs() {
 	cmn_tabh_elements.sort(tabh_elements_sortfunction);
 	cmn_tabv_elements.sort(tabv_elements_sortfunction);
 
-	for(i = 0; i < cmn_tabh_elements_n; i++) {
+	for(i = 0; i < cmn_tabh_elements_n; i++) {		
 		cmn_tabh_elements[i].setAttribute('onmouseover', 'processFocusHandle(\'h\',' + i + ');');		
 	}
 	
@@ -117,12 +120,26 @@ function tabv_element_current() {
 }
 
 function tabv_elements_next() {
+	e = tab_element_current();
 	if (cmn_tabv_element_current < cmn_tabv_elements_n-1) cmn_tabv_element_current++;
+	current_number = 1* e.dataset.orderv;
+	if (current_number == (list_current_first + list_view_n) ) {
+		list_current_first++;
+		list_update();
+		current_off();
+		tabv_elements_last();
+	}
 	tabh2tabv();
 }
 
-function tabv_elements_previous() {
+function tabv_elements_previous() {	
+	e = tab_element_current();	
 	if (cmn_tabv_element_current > 0) cmn_tabv_element_current--;
+	current_number = 1* e.dataset.orderv;	
+	if ( (current_number == (list_current_first + 1)) && (list_current_first > 0) ) {
+		list_current_first--;
+		list_update();
+	}
 	tabh2tabv();
 }
 
@@ -155,12 +172,13 @@ function loadJSON(url) {
   	var newScript = document.createElement('script');
   		newScript.type = 'text/javascript';
   		newScript.src = yahooPipe+url;
-newScript.src = '../js/json1.js';	  		
+newScript.src = '../js/json2.js';	  		
   	headID.appendChild(newScript);
 }
 
 function processJSON(feed){
-  current_list = list_to_load; 
+  list_current = list_to_load; 
+  list_current_first = 0;
   list[list_to_load] = new Array(); 
   j=0;
   for(i=0; i<feed.value.items.length; i++) {
@@ -210,7 +228,12 @@ function processFocusHandle(order, n) {
 function list_update() {
 	items = document.getElementById('items');
 	items.innerHTML = '';
-	for(i=0; i<list[current_list].length; i++) {
+	list_current_n = list[list_current].length;
+	last = list_current_first + list_view_n;
+	if (last > list_current_n) last = list_current_n; 
+	k = -1;
+	for(i=list_current_first; i<last; i++) {
+		k++;
 		// Use this to allow all h navigation
 		//data_orderh = ' data-orderh="' + (cmn_tabh_elements_real_n + i - 1) + '" ';
 		// Use this to allow partial h navigation
@@ -220,17 +243,17 @@ function list_update() {
 			data_orderh = '';
 		}
 		
-		if ((play_list == current_list) && (play_song == i)) {
+		if ((play_list == list_current) && (play_song == i)) {
 			btn = 'play_btn_on';
 		} else {
 			btn = 'play_btn_off';  
 		}
 		items.innerHTML = items.innerHTML + 
 				'<li class="trackline tab_off" data-orderv="' + (i + 1) + '" ' + data_orderh + 
-					'onmouseover="processFocusHandle(\'v\',' + (i) + ');" onmousedown="action();" ' +
+					'onmouseover="processFocusHandle(\'v\',' + k + ');" onmousedown="action();" ' +
 					'data-play="' + (i) + '">' +
 				'<span class="number">' + (i+1) + '</span>' + 		
-				'<span class="track">' + list[current_list][i].title + '</span>' +
+				'<span class="track">' + list[list_current][i].title + '</span>' +
 				'<div class="' + btn + '"></div>'+
 				'</li>';			  
 	}
@@ -242,14 +265,14 @@ function list_update() {
 
 function preview_update() {
 	i = cmn_tabv_element_current;
-	if (list[current_list][i].image) {
-		document.getElementById('image').innerHTML = '<img id="theimage" src="' + list[current_list][i].image + '"/>';
+	if (list[list_current][i].image) {
+		document.getElementById('image').innerHTML = '<img id="theimage" src="' + list[list_current][i].image + '"/>';
 	} else {
 		document.getElementById('image').innerHTML = '';
 	}
-	document.getElementById('title').innerHTML = list[current_list][i].title;
-	document.getElementById('date').innerHTML = list[current_list][i].date;
-	document.getElementById('text').innerHTML = list[current_list][i].description;
+	document.getElementById('title').innerHTML = list[list_current][i].title;
+	document.getElementById('date').innerHTML = list[list_current][i].date;
+	document.getElementById('text').innerHTML = list[list_current][i].description;
 }
 
 function addEvent(object, eventStr, func) {

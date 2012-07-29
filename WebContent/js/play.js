@@ -15,15 +15,15 @@ var progressBarPx;
 
 function audioPlay(id){
 	current_song = id;
-	play_list = current_list;
+	play_list = list_current;
 	play_song = current_song;	
 	list_update();
 	playInit();
 	playButtonDown = new Array();
 	playButtonDown[id] = 1;
-	var audio_player_obj = '<object id="media" data="'+ list[current_list][current_song].media + '" type="audio/x-pn-realaudio-plugin" width="0" height="0" autostart="true" downloadable="false"></object>';
+	var audio_player_obj = '<object id="media" data="'+ list[list_current][current_song].media + '" type="audio/x-pn-realaudio-plugin" width="0" height="0" autostart="true" downloadable="false"></object>';
 	document.getElementById('mediaDiv').innerHTML=audio_player_obj;
-	document.getElementById('musicName').innerHTML=list[current_list][id].title;
+	document.getElementById('musicName').innerHTML=list[list_current][id].title;
 	//////// play Button Image
 /*
   if(id > ((pageNo + 1) * blockSize)){
