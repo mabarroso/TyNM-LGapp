@@ -309,6 +309,7 @@ function processIconFocusHandle(divId, action) {
 }
 
 function executeAction(action, position) {
+	alert(action);
 	var m = getMedia(); 
 	var v = document.getElementById("mediaDiv");
 	var li = document.getElementById("loadingIcon");
@@ -323,13 +324,17 @@ function executeAction(action, position) {
 		}
 		switch(action) {
 			case 'playToggle' :
+alert('switch');				
 			  //added as ux change
 			  if(m.data == null || m.data == "" || m.data == "undefined"){return;}
-				//if(m.playState == 1) {
+alert('if 1');
+			  //if(m.playState == 1) {
 				if(curTogButStat == "PAUSE") {
+alert('if 2.1');
 					m.play(0); //pause
 					setImgSrc('playCtrl', "../image/PLAYER/MUSIC_PLAYER_ICON_PLAY.png");
 				} else {
+alert('if 2.2');					
 					m.play(1); // play
 					setImgSrc('playCtrl', "../image/PLAYER/MUSIC_PLAYER_ICON_PAUSE.png");
 				}

@@ -88,11 +88,15 @@ function action() {
 
 function current_off() {
 	e = tab_element_current();
-	e.className = e.className.replace( /tab_on/ , 'tab_off' );
+	if (null != e) {
+		e.className = e.className.replace( /tab_on/ , 'tab_off' );
+	}
 }
 
 function current_on() {
 	e = tab_element_current();
-	e.className = e.className.replace( /tab_off/ , 'tab_on' );	
+	if (null != e) {
+		e.className = e.className.replace( /tab_off/ , 'tab_on' );
+	}
 }
 
